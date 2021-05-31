@@ -21,11 +21,13 @@
         function generateBlock(data){
             const container = document.querySelector(".container");
             for (let i = 0; i < data.length ; i++) {
-                let item = data[i]
-                var urlString = "url(" + item.link + ")  no-repeat";
+                let item = data[i];
                 const blocks = document.createElement('div');
+                const image = document.createElement('img');
                 blocks.classList.add("block");
-                blocks.style.background = urlString;
+                image.classList.add("image");
+                image.src = item.link;
+                blocks.appendChild(image)
                 container.appendChild(blocks)
             }
         }

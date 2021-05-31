@@ -12,23 +12,3 @@ async function getData(url = ""){
     })
     return rep.json();
 }
-
-
-function renderImageAPI(id,data){
-    if(data != undefined && data.length != 0){
-        let result = data.map((val, i, arr) => {
-             return  `
-             <div class="category__item">
-                    <img src="${val.link}" alt="" class="category__image">
-                    <h3 class="category__name">DieuXinhDep</h3>
-                    <a href="#" class="category__link">
-                            CC Certified
-                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-                    </a> 
-            </div>
-             `
-         } )
-         document.getElementById(id).innerHTML  = result.join('');
-         return false;
-    }
-}

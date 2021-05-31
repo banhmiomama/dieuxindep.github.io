@@ -21,10 +21,11 @@
         function generateBlock(data){
             const container = document.querySelector(".container");
             for (let i = 0; i < data.length ; i++) {
-                let item  = data[i]
+                let item = data[i]
+                var urlString = "url(" + item.link + ")  no-repeat";
                 const blocks = document.createElement('div');
                 blocks.classList.add("block");
-                blocks.style.background("url('"+ item.link  +"'')");
+                blocks.style.background = urlString;
                 container.appendChild(blocks)
             }
         }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+    </div>
+    <script src="anime.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+
+        function generateBlock(data){
+            const container = document.querySelector(".container");
+            for (let i = 0; i < data.length ; i++) {
+                let item  = data[i]
+                const blocks = document.createElement('div');
+                blocks.classList.add("block");
+                blocks.style.background("url('"+ item.link  +"'')");
+                container.appendChild(blocks)
+            }
+        }
+
+        function generate() {
+            anime({
+                targets: '.block',
+                translateX: function () {
+                    return anime.random(-700, 700)
+                },
+                translateY: function () {
+                    return anime.random(-700, 700)
+                },
+                scale: function () {
+                    return anime.random(1, 5);
+                }
+            })
+        }
+
+        window.onload = function (e) {
+                getData(albumUrl).then(
+                    data => {
+                        generateBlock(data.data);
+                        setInterval(function(){
+                            generate()
+                        },3000)
+                    }
+                )
+            }
+
+
+    </script>
+</body>
+
+</html>
